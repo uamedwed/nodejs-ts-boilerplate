@@ -1,0 +1,17 @@
+{
+  "parser": "typescript",
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:recommended"
+  ],
+  "jsRules": {},
+  "env": {
+    "node": true,
+    "mocha": true,
+    "es6": true
+  },
+  "rules": {
+    "no-console": false
+  },
+  "rulesDirectory": []
+}

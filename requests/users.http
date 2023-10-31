@@ -1,0 +1,29 @@
+### POST create user
+POST http://localhost:3000/api/v1/users
+Content-Type: application/json
+
+{
+  "name": "test1",
+  "nickname": "testnick1"
+}
+
+### GET list users
+GET http://localhost:3000/api/v1/users?page=0&size=2
+Content-Type: application/json
+
+### GET user by nickname
+GET http://localhost:3000/api/v1/users/testnick
+Content-Type: application/json
+
+### PATCH user by nickname
+PATCH http://localhost:3000/api/v1/users/testnick
+Content-Type: application/json
+
+{
+  "name": "namenew",
+  "nickname": "nicknamenew"
+}
+
+### DELETE user by nickname
+DELETE http://localhost:3000/api/v1/users/testnick
+Content-Type: application/json

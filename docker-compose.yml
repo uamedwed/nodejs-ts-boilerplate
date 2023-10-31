@@ -1,0 +1,42 @@
+version: "3.8"
+
+services:
+  mongodb:
+    container_name: db_container
+    image: mongo:latest
+    restart: unless-stopped
+    env_file: ./.env.development
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=$DATABASE_USER
+      - MONGO_INITDB_ROOT_PASSWORD=$DATABASE_PASSWORD
+    ports:
+      - $DATABASE_PORT:$DATABASE_PORT
+    volumes:
+      - ./db_data:/data/db
+
+  app:
+    container_name: app_container
+    depends_on:
+      - mongodb
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    env_file: ./.env.development
+    ports:
+      - $APP_PORT:$APP_PORT
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - DATABASE_HOST=mongodb
+      - DATABASE_USER=$DATABASE_USER
+      - DATABASE_PASSWORD=$DATABASE_PASSWORD
+      - DATABASE_NAME=$DATABASE_NAME
+      - DATABASE_PORT=$DATABASE_PORT
+      - APP_PORT=$APP_PORT
+    stdin_open: true
+    tty: true
+
+volumes:
+  db_data:

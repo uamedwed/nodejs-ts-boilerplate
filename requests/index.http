@@ -1,0 +1,7 @@
+### GET basic route
+GET http://localhost:3000/
+Content-Type: application/json
+
+### GET docs
+GET http://localhost:3700/api/v1/docs/
+Content-Type: application/json
