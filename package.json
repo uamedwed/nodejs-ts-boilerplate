@@ -1,6 +1,6 @@
 {
   "name": "nodejs-ts-boilerplate",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Boilerplate backend by node.js",
   "scripts": {
     "start": "node dist/index.js",
